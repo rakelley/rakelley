@@ -1,4 +1,4 @@
-#ruby=ruby-2.1.2
+#ruby=ruby-2.2.1
 #ruby-gemset=rakelley_site
 
 gem "compass"
