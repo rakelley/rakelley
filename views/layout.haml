@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+%html{:lang => "en"}
+  %head
+    - @layout_title = defined?(@layout_title) ? " - #{@layout_title}" : ''
+    %title= "rakelley.us#{@layout_title}"
+
+  %body
+    .page_container
+      %nav{:class => "sitenav", :role => "nav"}
+        = partial :sitenav
+      %main{:role => "main"}
+        = yield
+
+  %footer

@@ -1,0 +1,9 @@
+= yield
+
+%ul{:class => ".recent_posts"}
+  - @posts.each do |post_url|
+    - @parts = post_url.split('/').drop(2)
+    - @post_title = @parts.pop.split('-').map(&:capitalize).join(' ')
+    - @post_date = @parts.rotate(1).join('/')
+    %li{:class => "recent_posts-link"}
+      %a{:href => "#{post_url}"}= "#{@post_date} - #{@post_title}"

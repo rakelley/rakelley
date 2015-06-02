@@ -1,0 +1,6 @@
+#cache
+.sass-cache
+
+#testing/dev
+*.project
+*.sublime*
