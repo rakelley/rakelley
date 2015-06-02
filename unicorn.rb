@@ -1,10 +1,10 @@
-deploy_to = "/home/rakelley/www"
+deploy_to = "/home/rakelley/www/rakelley.us"
 pid_file = "#{deploy_to}/pids/unicorn.pid"
 old_pid = pid_file + '.oldbin'
 
 # Set the working application directory
 # working_directory "/path/to/your/app"
-working_directory "#{deploy_to}/rakelley.us"
+working_directory "#{deploy_to}"
 
 # Unicorn PID file location
 # pid "/path/to/pids/unicorn.pid"
