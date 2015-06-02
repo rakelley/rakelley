@@ -1,5 +1,7 @@
 #cache
 .sass-cache
+.pids/
+logs/
 
 #testing/dev
 *.project

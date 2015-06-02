@@ -1,5 +1,7 @@
 = yield
 
+%h2 Recent Posts
+
 %ul{:class => ".recent_posts"}
   - @posts.each do |post_url|
     - @parts = post_url.split('/').drop(2)
