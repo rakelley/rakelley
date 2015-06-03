@@ -368,8 +368,14 @@ for this website for an example if you're unclear on anything.
 ## Additional Tricks and Notes
 If you want Github-style triple-tick code blocks in your markdown, replace the
 `markdown` gem with `redcarpet` in your `Gemfile` and add `:ugly => true` to
-your HAML options (e.g. `set :haml, :format => :html5, :ugly => true`) in your
-application to prevent HAML from messing up the whitespace in your code blocks.
+your HAML options, e.g.
+
+```ruby
+set :haml, :format => :html5, :ugly => true`
+```
+
+in your application to prevent HAML from messing up the whitespace in your code
+blocks.
 
 If you have a more complex or high traffic site or just a desire for a more
 robust deployment system and server, you might want to investigate
