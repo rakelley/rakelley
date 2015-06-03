@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem "compass"
 gem "haml"
-gem "markdown"
+gem "redcarpet"
 gem "rerun"
 gem "sass"
 gem "sinatra"

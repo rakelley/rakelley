@@ -1,35 +1,23 @@
-deploy_to = "/home/rakelley/www/rakelley.us"
-pid_file = "#{deploy_to}/pids/unicorn.pid"
-old_pid = pid_file + '.oldbin'
+project_home = "/home/rakelley/www/rakelley.us"
+project_name = "rakelley"
+pid_file = "#{project_home}/pids/unicorn.pid"
 
-# Set the working application directory
-# working_directory "/path/to/your/app"
-working_directory "#{deploy_to}"
+working_directory "#{project_home}"
 
-# Unicorn PID file location
-# pid "/path/to/pids/unicorn.pid"
 pid pid_file
 
-# Path to logs
-# stderr_path "/path/to/logs/unicorn.log"
-# stdout_path "/path/to/logs/unicorn.log"
-stderr_path "#{deploy_to}/logs/unicorn.log"
-stdout_path "#{deploy_to}/logs/unicorn.log"
+stderr_path "#{project_home}/logs/unicorn.log"
+stdout_path "#{project_home}/logs/unicorn.log"
 
-# Unicorn socket
-# listen "/tmp/unicorn.[app name].sock"
-listen "/tmp/unicorn.rakelley.sock"
+listen "/tmp/unicorn.#{project_name}.sock"
 
-# Number of processes
-# worker_processes 4
 worker_processes 4
 
-# Time-out
 timeout 30
 
-# zero downtime deploy magic:
-# if unicorn is already running, ask it to start a new process and quit.
+# zero downtime deploy magic
 before_fork do |server, worker|
+  old_pid = pid_file + '.oldbin'
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU

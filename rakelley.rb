@@ -3,11 +3,11 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
 
-class Rakelley < Sinatra::Application
+class Rakelley < Sinatra::Base
   register Sinatra::Partial
 
-  set :haml, :format => :html5
-  set :markdown, :layout_engine => :haml
+  set :haml, :format => :html5, :ugly => true
+  set :markdown, :layout_engine => :haml, :fenced_code_blocks => true
 
   helpers do
     # Get array of post URLs sorted by most recent, with optional limit
@@ -63,6 +63,4 @@ class Rakelley < Sinatra::Application
     @layout_title = params[:name]
     markdown "projects/#{params[:name]}".to_sym
   end
-
-  run! if app_file == $0
 end
