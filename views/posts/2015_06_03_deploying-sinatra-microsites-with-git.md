@@ -248,8 +248,19 @@ gem install bundler
 ```
 
 then make the folder for your project at the location you previously put in your
-config files.  You then need to make a note of the full path for bundle with
-`which bundle`, as we'll need that shortly.
+config files. You then need to create an RVM wrapper in order for our RVM
+environment to be loaded from any script we run.  This is done with
+
+```
+rvm alias create my_project ruby-VERSION@GEMSET
+```
+
+with `my_project` replaced with your project name and `VERSION` and `GEMSET`
+replaced with the appropriate values identical to your `Gemfile` and `.rvmrc`.
+This will create a wrapper at `/path/to/.rvm/wrappers/my_project`, and any
+commands prefaced with that wrapper will be done with your Ruby environment
+available.  If you're not sure where the rvm directory is, use `which rvm`, but
+it will usually be at `/home/username/.rvm` or `/usr/local/rvm`.
 
 
 ### Git
@@ -265,16 +276,17 @@ time a push is received.  You need to add the following lines:
 #!/bin/bash
 PROJECT_HOME=/chosen/path/to/project
 GIT_TARGET=/var/repo/my_project.git
+PROJECT_WRAPPER=/path/to/.rvm/wrappers/my_project
 
-git --work-tree=#{PROJECT_HOME} --git-dir=${GIT_TARGET} checkout -f
+git --work-tree=${PROJECT_HOME} --git-dir=${GIT_TARGET} checkout -f
 cd ${PROJECT_HOME}
-/located/path/to/bundle install --deployment
+${PROJECT_WRAPPER}/bundle install --deployment
 
 ```
 
-Replace the paths for `PROJECT_HOME` and `GIT_TARGET` to match yours, and change
-`/located/path/to/bundle` with the one you found previously. You then need to
-`chmod +x post-receive`.
+Replace the paths for `PROJECT_HOME` and `GIT_TARGET` and `PROJECT_WRAPPER` to
+match yours and save the file. You then need to `chmod +x post-receive` to make
+it executable.
 
 Back on your local machine, you need to add this target as a new remote for your
 repository:
@@ -311,20 +323,7 @@ service so that Unicorn comes up whenever your server is restarted.  Here's
 where things get sticky if you're using a distro other than Ubuntu for your
 server: init systems vary and yours may use sys-v or systemd instead of Upstart.
 
-First we need to create an RVM wrapper in order for our RVM environment to be
-loaded from an init script.  This is done with
-
-```
-rvm alias create my_project ruby-VERSION@GEMSET
-```
-
-with `my_project` replaced with your project name and `VERSION` and `GEMSET`
-replaced with the appropriate values identical to your `Gemfile` and `.rvmrc`.
-This will create a wrapper at `/path/to/.rvm/wrappers/my_project/`, and any
-commands prefaced with that wrapper will be done with your Ruby environment
-available.
-
-Upstart init scripts are stored in `/etc/init`, so we're going to create a
+Upstart init scripts are stored in `/etc/init`, so you're going to create a
 `.conf` file there with an appropriate name (e.g. `my_project_unicorn.conf`) and
 the following:
 
@@ -344,10 +343,10 @@ end script
 respawn
 ```
 
-The script loads our environment and then starts Unicorn in Daemon (-D) mode
-with our config file and our gems loaded by bundle, while the rest handles
-starting and stopping our service when the server comes up or goes down and
-restarting it if it crashes.
+using the same wrapper used in the Git hook setup.  The script loads our
+environment and then starts Unicorn in Daemon (-D) mode with our config file and
+our gems loaded by bundle, while the rest handles starting and stopping our
+service when the server comes up or goes down and restarting it if it crashes.
 
 You can test the service with `service my_project_unicorn start`, and by
 restarting the server and then checking with `ps aux | grep [u]nicorn` for the
