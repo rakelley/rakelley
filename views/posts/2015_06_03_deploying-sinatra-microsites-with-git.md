@@ -248,8 +248,18 @@ gem install bundler
 ```
 
 then make the folder for your project at the location you previously put in your
-config files.  You then need to make a note of the full path for bundle with
-`which bundle`, as we'll need that shortly.
+config files. You then need to create an RVM wrapper in order for our RVM
+environment to be loaded from any script we run.  This is done with
+
+```
+rvm alias create my_project ruby-VERSION@GEMSET
+```
+
+with `my_project` replaced with your project name and `VERSION` and `GEMSET`
+replaced with the appropriate values identical to your `Gemfile` and `.rvmrc`.
+This will create a wrapper at `/path/to/.rvm/wrappers/my_project`, and any
+commands prefaced with that wrapper will be done with your Ruby environment
+available.
 
 
 ### Git
@@ -265,16 +275,17 @@ time a push is received.  You need to add the following lines:
 #!/bin/bash
 PROJECT_HOME=/chosen/path/to/project
 GIT_TARGET=/var/repo/my_project.git
+PROJECT_WRAPPER=/path/to/.rvm/wrappers/my_project
 
-git --work-tree=#{PROJECT_HOME} --git-dir=${GIT_TARGET} checkout -f
+git --work-tree=${PROJECT_HOME} --git-dir=${GIT_TARGET} checkout -f
 cd ${PROJECT_HOME}
-/located/path/to/bundle install --deployment
+${PROJECT_WRAPPER}/bundle install --deployment
 
 ```
 
-Replace the paths for `PROJECT_HOME` and `GIT_TARGET` to match yours, and change
-`/located/path/to/bundle` with the one you found previously. You then need to
-`chmod +x post-receive`.
+Replace the paths for `PROJECT_HOME` and `GIT_TARGET` and `PROJECT_WRAPPER` to
+match yours and save the file. You then need to `chmod +x post-receive` to make
+it executable.
 
 Back on your local machine, you need to add this target as a new remote for your
 repository:
