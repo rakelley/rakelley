@@ -4,7 +4,9 @@
 building small websites very fast and easy.  With a few more basic tools, you
 can have a site up and running in less than a day with no maintenance and easy
 git-based deployment with zero downtime.  In this post I'm going to cover how to
-set up your stack and get your server serving in no time at all.
+set up your stack and get your server serving in no time at all, as while the
+information for each piece is already out there, combining them isn't always the
+clearest.
 
 For brevity, I'm going to assume you're using Ubuntu, Mint, or another
 Debian-based distro for your development machine and Ubuntu 14.04 on the server,
@@ -43,8 +45,8 @@ In your `.rvmrc` you need to put a single line:
 rvm use VERSION@GEMSET --install --create
 ```
 
-replacing the version with your version number and the gemset with your chosen
-gemset name, e.g.
+replacing the `VERSION` with your version number and the `GEMSET` with your
+chosen gemset name, e.g.
 
 ```bash
 rvm use 2.2.2@my_project --install --create
@@ -71,20 +73,18 @@ source 'https://rubygems.org'
 
 gem "haml"
 gem "markdown"
-gem "rerun"
 gem "sinatra"
 gem "unicorn"
 ```
 
-again replacing the VERSION with your Ruby version number and the GEMSET with
+again replacing the `VERSION` with your Ruby version number and the `GEMSET` with
 your chosen gemset name.  The source defines where Bundler will look for any
 gems not already installed on your system, and each gem line defines a gem to be
 installed and used.  If you need any additional gems you can add them to the
 list in the same way, I would recommend `sinatra-partial` (allows you to use
-rails-style partial views) and `compass` (a SASS compiler and utility library
-for cross-browser polyfills on experimental CSS features and the like).  If you
-aren't going to use HAML and Markdown for your views and layout, you can replace
-those gems with the appropriate ones for your project.
+rails-style partial views) and `compass` (a SASS compiler and utility library).
+If you aren't going to use HAML and Markdown for your views and layout, you can
+replace those gems with the appropriate ones for your project.
 
 Once your `Gemfile` is ready, executing `bundle install` will get all your gems
 ready for use.
@@ -135,7 +135,8 @@ testing.  You can then make sure your application is working by executing
 
 In the future, `views` will contain all your view and layout files, `public`
 will contain all your public files (css, js, images, etc), and `logs` and `pids`
-will be used by our full server stack.
+will be used by our full server stack.  `logs/` and `pids/` should be added to
+your `.gitignore`.
 
 
 ## Unicorn and Nginx
@@ -235,7 +236,11 @@ I won't cover how to spin up a DigitalOcean Droplet or other VPS and provision
 it with ssh keys and the like, if you need help there I would suggest
 [this guide](https://www.digitalocean.com/community/tutorial_series/new-ubuntu-14-04-server-checklist).
 We're going to assume you have a server ready to go that you can `ssh` into as a
-non-root user and start getting ready to accept your application.
+non-root user and prep to accept your application.
+
+Start by creating the directory for your project at the location you've put in
+your config files, and also create the `pids` and `logs` subdirectories as Git
+will not be copying them for you.
 
 
 ### RVM and Bundler
@@ -247,9 +252,8 @@ local machine
 gem install bundler
 ```
 
-then make the folder for your project at the location you previously put in your
-config files. You then need to create an RVM wrapper in order for our RVM
-environment to be loaded from any script we run.  This is done with
+You then need to create an RVM wrapper in order for our RVM environment to be
+loaded from any script we run.  This is done with
 
 ```
 rvm alias create my_project ruby-VERSION@GEMSET
@@ -371,7 +375,7 @@ If you want Github-style triple-tick code blocks in your markdown, replace the
 your HAML options, e.g.
 
 ```ruby
-set :haml, :format => :html5, :ugly => true`
+set :haml, :format => :html5, :ugly => true
 ```
 
 in your application to prevent HAML from messing up the whitespace in your code
