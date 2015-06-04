@@ -1,0 +1,19 @@
+%margin-bottom {
+    margin-bottom: $spacer;
+}
+
+%margin-bottom-double {
+    margin-bottom: $spacer * 2;
+}
+
+%margin-bottom-half {
+    margin-bottom: $spacer / 2;
+}
+
+%margin-bottom-quarter {
+    margin-bottom: $spacer / 4;
+}
+
+%margin-bottom-none {
+    margin-bottom: 0;
+}

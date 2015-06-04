@@ -1,0 +1,30 @@
+.sitenav {
+  @extend %clearfix;
+  max-width: 600px;
+}
+
+.sitenav-uri {
+  @extend %heading-three;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.sitenav-desc {
+  @extend %heading-six;
+  display: inline-block;
+  margin-left: $spacer / 2;
+  margin-top: 0;
+}
+
+.sitenav-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  a {
+    @extend %button;
+    margin-left: $spacer / 8;
+    flex: 1 1 auto;
+  }
+}

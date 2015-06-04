@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 %html{:lang => "en"}
   %head
-    - @layout_title = defined?(@layout_title) ? " - #{@layout_title}" : ''
-    %title= "rakelley.us#{@layout_title}"
+    - @title = (defined?(@layout_title) ? "#{@layout_title} - " : '') + "rakelley.us"
+    %title= @title
+
+    %meta{:charset => "utf-8"}
+    %meta{:name => "description", :content => @title}
+    %meta{:name => "viewport",
+          :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+
+    %link{:rel => "stylesheet", :href => "//fonts.googleapis.com/css?family=Open+Sans",
+          :type => "text/css"}
+    %link{:rel => "stylesheet", :href => "//fonts.googleapis.com/css?family=Bitter:400,700",
+          :type => "text/css"}
+    %link{:rel => "stylesheet", :href => "//fonts.googleapis.com/css?family=Source+Code+Pro:500",
+          :type => "text/css"}
+    %link{:rel => "stylesheet", :href => "/css/layout.css", :type => "text/css"}
 
   %body
     .page_container

@@ -1,0 +1,41 @@
+%heading {
+  @extend %font-family-serif;
+  @extend %font-lineheight-heading;
+  margin-top: $spacer / 2;
+}
+
+%heading-one {
+  @extend %heading;
+  @extend %margin-bottom-half;
+  font-size: 2.25em;
+}
+
+%heading-two {
+  @extend %heading;
+  @extend %margin-bottom-quarter;
+  font-size: 1.875em;
+}
+
+%heading-three {
+  @extend %heading;
+  @extend %margin-bottom-quarter;
+  font-size: 1.5em;
+}
+
+%heading-four {
+  @extend %heading;
+  @extend %margin-bottom-quarter;
+  font-size: 1.25em;
+}
+
+%heading-five {
+  @extend %heading;
+  @extend %margin-bottom-quarter;
+  font-size: 1.1em;
+}
+
+%heading-six {
+  @extend %heading;
+  @extend %margin-bottom-quarter;
+  font-size: 1em;
+}

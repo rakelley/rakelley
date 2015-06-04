@@ -1,0 +1,34 @@
+/**
+ * Sans Serif font family
+ * @type {String}
+ */
+$font_sans: 'Open Sans';
+
+/**
+ * Serif font family
+ * @type {String}
+ */
+$font_serif: 'Bitter';
+
+/**
+ * Monospace font family
+ * @type {String}
+ */
+$font_mono: 'Source Code Pro';
+
+/**
+ * font-size for body in px, all others are in em form relative to this
+ */
+$fontsize_base: 16px;
+
+/**
+ * default value for line-height
+ * @type {Number}
+ */
+$lineheight_base: 1.2;
+
+/**
+ * default line-height for headings
+ * @type {Number}
+ */
+$lineheight_heading: 1.3;

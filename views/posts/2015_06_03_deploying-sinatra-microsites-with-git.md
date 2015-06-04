@@ -1,12 +1,12 @@
 # Deploying Sinatra Microsites With Git
 
-[Sinatra](http://www.sinatrarb.com/) is a Ruby microframework that makes
-building small websites very fast and easy.  With a few more basic tools, you
-can have a site up and running in less than a day with no maintenance and easy
-git-based deployment with zero downtime.  In this post I'm going to cover how to
-set up your stack and get your server serving in no time at all, as while the
-information for each piece is already out there, combining them isn't always the
-clearest.
+`Sinatra` is a Ruby microframework that makes building small websites very fast
+and easy.  With a few more basic tools, you can have a site up and running in
+less than a day with no maintenance and easy git-based deployment with zero
+downtime.  In this post I'm going to cover how to set up your stack and get your
+server serving in no time at all, as while the information for each piece is
+already out there, it isn't always clear how to combine the disparate
+configurations.
 
 For brevity, I'm going to assume you're using Ubuntu, Mint, or another
 Debian-based distro for your development machine and Ubuntu 14.04 on the server,

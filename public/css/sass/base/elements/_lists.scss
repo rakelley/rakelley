@@ -1,0 +1,21 @@
+
+%list-defaults {
+  @extend %margin-bottom-half;
+  margin-left: $spacer;
+  padding-left: $spacer / 2;
+}
+
+ol {
+  @extend %list-defaults;
+  list-style: decimal;
+}
+
+ul { 
+  @extend %list-defaults;
+  list-style: disc outside;
+}
+
+li {
+  @extend %font-lineheight-heading;
+  @extend %margin-bottom-quarter;
+}

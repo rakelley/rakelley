@@ -1,0 +1,8 @@
+
+//main container for all body children
+.page_container {
+  @extend %clearfix;
+  padding: 0 $spacer / 2;
+  max-width: 1400px;
+  margin: auto;
+}

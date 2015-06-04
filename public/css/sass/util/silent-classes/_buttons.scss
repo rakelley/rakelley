@@ -1,0 +1,27 @@
+%button {
+  @extend %font-family-serif;
+  display: inline-block;
+  text-align: center;
+  padding: $spacer / 2 $spacer;
+  border: 0;
+  font-size: 1.25em;
+  cursor: pointer;
+  background: $color_third;
+  color: $color_first;
+
+  &:hover, &:focus {
+    background: adjust_color($color_third, $lightness: 5%);
+    color: adjust_color($color_first, $lightness: 5%);
+    box-shadow: 0 0 3px 0 $color_first;
+    transition: 0.25s;
+  }
+
+  &:active {
+    background: adjust_color($color_third, $lightness: -5%);
+    color: adjust_color($color_first, $lightness: -5%);
+  }
+
+  &:visited {
+    color: $color_first;
+  }
+}

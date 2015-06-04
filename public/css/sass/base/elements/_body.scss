@@ -1,0 +1,19 @@
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  @extend %font-family-sans;
+  @extend %font-lineheight-base;
+  @extend %font-size-base;
+  @extend %font-color-primary;
+  margin: 0;
+  background-color: $color_second;
+}
+
+main {
+  @include media-desktop {
+    min-height: 800px;
+  }
+}

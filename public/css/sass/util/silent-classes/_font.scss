@@ -1,0 +1,65 @@
+/*********************************** Family ***********************************/
+%font-family-sans {
+  font-family: $font_sans, sans-serif;
+  font-weight: inherit; text-transform: none;
+}
+
+%font-family-serif {
+  font-family: $font_serif, serif;
+  font-weight: bold; text-transform: none;
+}
+
+%font-family-mono {
+  font-family: $font_mono, monospace;
+  font-weight: medium; text-transform: none;
+}
+
+
+/*********************************** Color ************************************/
+%font-color-primary {
+  color: $color_first;
+}
+%font-color-primary-accent {
+  color: $color_first_accent;
+}
+
+%font-color-secondary {
+  color: $color_second;
+}
+%font-color-secondary-accent {
+  color: $color_second_accent;
+}
+
+%font-color-tertiary {
+  color: $color_third;
+}
+%font-color-tertiary-accent {
+  color: $color_third_accent;
+}
+
+
+/************************************ Size ************************************/
+%font-size-base {
+  font-size: $fontsize_base;
+}
+
+%font-size-small {
+  font-size: 80%;
+}
+
+%font-size-big {
+  font-size: 120%;
+}
+%font-size-bigger {
+  font-size: 140%;
+}
+
+
+/*********************************** Height ***********************************/
+%font-lineheight-base {
+  line-height: $lineheight_base;
+}
+
+%font-lineheight-heading {
+  line-height: $lineheight_heading;
+}

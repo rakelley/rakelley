@@ -1,0 +1,49 @@
+
+h1 { @extend %heading-one; }
+h2 { @extend %heading-two; }
+h3 { @extend %heading-three; }
+h4 { @extend %heading-four; }
+h5 { @extend %heading-five; }
+h6 { @extend %heading-six; }
+
+p {
+  @extend %margin-bottom;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+small {
+  @extend %font-size-small;
+}
+
+a, a:visited {
+  @extend %font-color-tertiary;
+  text-decoration: none;
+
+  &:hover, &:focus, &:active {
+    @extend %font-color-tertiary-accent;
+  }
+}
+
+code {
+  @extend %font-family-mono;
+  @extend %font-color-secondary;
+  background: $color_first;
+}
+
+pre {
+  margin-top: $spacer / -2;
+  margin-bottom: $spacer / 2;
+
+  > code {
+    margin-left: $spacer;
+    padding: $spacer / 2;
+    display: inline-block;
+  }
+}
