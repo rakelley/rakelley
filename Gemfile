@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem "compass"
 gem "haml"
 gem "redcarpet"
-gem "rerun"
 gem "sass"
 gem "sinatra"
 gem "sinatra-partial"
