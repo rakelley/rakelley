@@ -18,10 +18,11 @@
     %link{:rel => "stylesheet", :href => "/css/layout.css", :type => "text/css"}
 
   %body
-    .page_container
-      %nav{:class => "sitenav", :role => "nav"}
+    %header
+      .page_container
         = partial :sitenav
-      %main{:role => "main"}
+    %main{:role => "main"}
+      .page_container
         = yield
 
   %footer

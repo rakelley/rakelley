@@ -12,8 +12,20 @@ body {
   background-color: $color_second;
 }
 
+header {
+  @extend %margin-bottom;
+  background-color: $color_second_accent;
+}
+
 main {
+  @extend %margin-bottom;
   @include media-desktop {
     min-height: 800px;
   }
 }
+
+footer {
+  @extend %margin-bottom;
+  background-color: $color_second_accent;
+}
+

@@ -1,12 +1,13 @@
-%h5{:class => "sitenav-uri"} rakelley.us
-%h6{:class => "sitenav-desc"} A Personal Coding Site
+%nav{:class => "sitenav", :role => "nav"}
+  %h5{:class => "sitenav-uri"} rakelley.us
+  %h6{:class => "sitenav-desc"} A Personal Coding Site
 
-.sitenav-list
-  %a{:href => "/", :rel => "home"}
-    Home
-  %a{:href => "/about", :rel => "internal"}
-    About
-  %a{:href => "/projects", :rel => "internal"}
-    Projects
-  %a{:href => "/posts", :rel => "internal"}
-    Posts
+  .sitenav-list
+    %a{:href => "/", :rel => "home"}
+      Home
+    %a{:href => "/about", :rel => "internal"}
+      About
+    %a{:href => "/projects", :rel => "internal"}
+      Projects
+    %a{:href => "/posts", :rel => "internal"}
+      Posts
