@@ -25,6 +25,11 @@ class Rakelley < Sinatra::Base
     end
   end
 
+  not_found do
+    @layout_title = "404 Not Found"
+    markdown :fourohfour
+  end
+
   get '/' do
     @layout_title = "Home"
     @posts = get_posts(5)
