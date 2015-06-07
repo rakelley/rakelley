@@ -23,18 +23,17 @@ small {
 }
 
 a, a:visited {
-  @extend %font-color-tertiary;
+  @extend %font-color-links;
   text-decoration: none;
 
   &:hover, &:focus, &:active {
-    @extend %font-color-tertiary-accent;
+    @extend %font-color-links-accent;
   }
 }
 
 code {
   @extend %font-family-mono;
   @extend %font-color-secondary;
-  background: $color_first;
 }
 
 pre {

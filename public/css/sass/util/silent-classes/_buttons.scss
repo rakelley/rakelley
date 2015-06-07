@@ -6,22 +6,22 @@
   border: 0;
   font-size: 1.25em;
   cursor: pointer;
-  background: $color_third;
-  color: $color_first;
+  background: $color_monokai_purple;
+  color: $color_monokai_yellow;
 
   &:hover, &:focus {
-    background: adjust_color($color_third, $lightness: 5%);
-    color: adjust_color($color_first, $lightness: 5%);
-    box-shadow: 0 0 3px 0 $color_first;
+    background: adjust_color($color_monokai_purple, $lightness: 5%);
+    color: adjust_color($color_monokai_yellow, $lightness: 5%);
+    box-shadow: 0 0 3px 0 $color_monokai_yellow;
     transition: 0.25s;
   }
 
   &:active {
-    background: adjust_color($color_third, $lightness: -5%);
-    color: adjust_color($color_first, $lightness: -5%);
+    background: adjust_color($color_monokai_purple, $lightness: -5%);
+    color: adjust_color($color_monokai_yellow, $lightness: -5%);
   }
 
   &:visited {
-    color: $color_first;
+    color: $color_monokai_yellow;
   }
 }

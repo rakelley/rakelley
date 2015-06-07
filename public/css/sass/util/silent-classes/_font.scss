@@ -17,24 +17,22 @@
 
 /*********************************** Color ************************************/
 %font-color-primary {
-  color: $color_first;
-}
-%font-color-primary-accent {
-  color: $color_first_accent;
+  color: $color_monokai_yellow;
 }
 
 %font-color-secondary {
-  color: $color_second;
-}
-%font-color-secondary-accent {
-  color: $color_second_accent;
+  color: $color_monokai_magenta;
 }
 
-%font-color-tertiary {
-  color: $color_third;
+%font-color-headings {
+  color: $color_monokai_green;
 }
-%font-color-tertiary-accent {
-  color: $color_third_accent;
+
+%font-color-links {
+  color: $color_monokai_purple;
+}
+%font-color-links-accent {
+  color: adjust_color($color_monokai_purple, $lightness: -10%);
 }
 
 

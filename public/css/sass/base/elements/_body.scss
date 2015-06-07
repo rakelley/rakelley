@@ -9,12 +9,12 @@ body {
   @extend %font-size-base;
   @extend %font-color-primary;
   margin: 0;
-  background-color: $color_second;
+  background-color: $color_monokai_grey;
 }
 
 header {
   @extend %margin-bottom;
-  background-color: $color_second_accent;
+  background-color: $color_monokai_greydarker;
 }
 
 main {
@@ -26,6 +26,6 @@ main {
 
 footer {
   @extend %margin-bottom;
-  background-color: $color_second_accent;
+  background-color: $color_monokai_greydarker;
 }
 

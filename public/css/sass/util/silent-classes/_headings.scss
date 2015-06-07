@@ -1,6 +1,7 @@
 %heading {
   @extend %font-family-serif;
   @extend %font-lineheight-heading;
+  @extend %font-color-headings;
   margin-top: $spacer / 2;
 }
 

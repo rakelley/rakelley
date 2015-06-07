@@ -1,14 +1,13 @@
-//primary text, emphasis backgrounds
-$color_first:           rgba(230, 219, 116, 1);
-$color_first_accent:    adjust_color($color_first, $lightness: -10%);
+$color_monokai_yellow: rgba(230, 219, 116, 1);
 
-//primary backgrounds, emphasis text
-$color_second:          rgba(56, 56, 48, 1);
-$color_second_accent:   rgba(39, 40, 34, 1);
+$color_monokai_grey: rgba(56, 56, 48, 1);
+$color_monokai_greydarker: rgba(38, 38, 30, 1);
 
-//buttons, accents
-$color_third:           rgba(174, 129, 255, 1);
-$color_third_accent:    adjust_color($color_third, $lightness: -10%);
+$color_monokai_purple: rgba(174, 129, 255, 1);
+
+$color_monokai_green: rgba(166, 226, 42, 1);
+
+$color_monokai_magenta: rgba(249, 38, 114, 1);
 
 //shadows
 $color_shadow:  rgba(34, 34, 34, 1);
