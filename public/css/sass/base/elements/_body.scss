@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+html {
+  @include media-desktop {
+    overflow-y: scroll;
+  }
+}
+
 body {
   @extend %font-family-sans;
   @extend %font-lineheight-base;
@@ -19,9 +25,6 @@ header {
 
 main {
   @extend %margin-bottom;
-  @include media-desktop {
-    min-height: 800px;
-  }
 }
 
 footer {
