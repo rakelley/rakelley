@@ -27,5 +27,5 @@ If you'd like to get ahold of me, I can be reached at
 <ryan@rakelley.us>.
 
 
-## Available for Hire: Yes
-_last updated 6/3/15_
+## Available for Hire: No
+_last updated 10/13/15_
