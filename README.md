@@ -2,7 +2,7 @@
 
 
 ## Description
-Just a simple personal site powered by [Sinatra](http://www.sinatrarb.com/)
+An experiment in simple semi-static blog building with Sinatra.  Unfortunately I don't have all that much to write about!
 
 
 ## License
